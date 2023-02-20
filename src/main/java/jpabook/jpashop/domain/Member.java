@@ -10,12 +10,11 @@ import java.util.List;
 @Entity
 @Getter @Setter
 public class Member {
-
-
     @Id @GeneratedValue
     @Column(name = "member_id")
     private Long id;
 
+    @Column(unique = true)
     private String name;
 
     @Embedded
@@ -23,8 +22,5 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
-
-
-
 
 }
